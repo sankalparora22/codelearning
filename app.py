@@ -108,28 +108,7 @@ def verify():
 
 
 # LOGIN
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    if request.method == "POST":
-        email = request.form["email"]
-        password = request.form["password"]
 
-     user = conn.execute(
-    "SELECT * FROM users WHERE email=?",
-    (email,)
-       ).fetchone()
-
-        if user and check_password_hash(user["password"], password):
-            session["user"] = {
-                "id": user["id"],
-                "name": user["name"],
-                "email": user["email"]
-            }
-            return redirect("/dashboard")
-
-        flash("Invalid login")
-
-    return render_template("login.html")
 
 @app.route("/users")
 def users():
@@ -147,7 +126,29 @@ def dashboard():
         return redirect("/login")
 
     return render_template("dashboard.html", user=session["user"])
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        email = request.form["email"]
+        password = request.form["password"]
 
+        with get_db() as conn:
+            user = conn.execute(
+                "SELECT * FROM users WHERE email=?",
+                (email,)
+            ).fetchone()
+
+        if user and check_password_hash(user["password"], password):
+            session["user"] = {
+                "id": user["id"],
+                "name": user["name"],
+                "email": user["email"]
+            }
+            return redirect("/dashboard")
+
+        flash("Invalid login")
+
+    return render_template("login.html")
 
 # LESSON ROUTES
 @app.route("/html")
