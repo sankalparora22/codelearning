@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+
+/* PAGE BACKGROUND SPACING */
+.dashboard {
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* ✨ NAVBAR (LUXURY GLASS STYLE) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 14px 22px;
+    margin-bottom: 25px;
+
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+    color: white;
+}
+
+/* USER NAME */
+.navbar span {
+    font-weight: 600;
+}
+
+/* ✨ CARDS */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* COURSE CARD */
+.card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    padding: 25px;
+    border-radius: 18px;
+
+    width: 220px;
+    text-align: center;
+
+    color: white;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    background: rgba(255,255,255,0.12);
+}
+
+/* BUTTONS */
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+    margin-top: 10px;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* RED BUTTON */
+button.danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+button.danger:hover {
+    box-shadow: 0 10px 20px rgba(239,68,68,0.4);
+}
+
+/* WELCOME TEXT */
+.title {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+</style>
+
+<div class="dashboard">
+
+    <!-- 🔝 NAVBAR -->
+    <div class="navbar">
+
+        <h2>Learn Coding in simple way</h2>
+
+        <div style="display:flex; align-items:center; gap:12px;">
+            <span>{{ user.name }}</span>
+
+            <a href="/logout">
+                <button class="danger">Logout</button>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- 👋 TITLE -->
+    <div class="title">
+        <h1>Welcome {{ user.name }} </h1>
+        <p>Start your coding journey</p>
+    </div>
+
+    <!-- 📚 COURSES -->
+    <div class="cards">
+
+        <div class="card">
+            <h3> HTML</h3>
+            <p>Learn web structure</p>
+            <a href="/html"><button>Start</button></a>
+        </div>
+
+        <div class="card">
+            <h3>🎨 CSS</h3>
+            <p>Design websites</p>
+            <button disabled>Coming</button>
+        </div>
+
+        <div class="card">
+            <h3>🐍 Python</h3>
+            <p>Learn programming</p>
+            <a href="/python"><button>Start</button></a>
+        </div>
+
+        <div class="card">
+            <h3>⚡ JavaScript</h3>
+            <p>Make websites interactive</p>
+            <a href="/js"><button>Start</button></a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

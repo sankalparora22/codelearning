@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Coding Platform</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.main {
+    padding: 40px;
+}
+</style>
+
+<style>
+
+/* RED BUTTON (logout) */
+button.danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* GREY BUTTON */
+button.secondary {
+    background: #e5e7eb;
+    color: black;
+}
+
+/* OUTLINE BUTTON */
+button.outline {
+    background: transparent;
+    border: 2px solid #6366f1;
+    color: #6366f1;
+}
+
+button.outline:hover {
+    background: #6366f1;
+    color: white;
+}
+
+</style>
+
+<style>
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+
+    font-size: 14px;
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* ✨ HOVER EFFECT */
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* CLICK EFFECT */
+button:active {
+    transform: scale(0.97);
+}
+</style>
+
+</head>
+
+<body>
+<div class="main">
+{% block content %}{% endblock %}
+</div>
+</body>
+</html>

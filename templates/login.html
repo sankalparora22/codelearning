@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="center-card">
+<h2>Login</h2>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<p style="color:red;">{{ messages[0] }}</p>
+{% endif %}
+{% endwith %}
+
+<form method="POST">
+<input name="email" placeholder="Email">
+<input name="password" type="password" placeholder="Password">
+<button>Login</button>
+</form>
+
+</div>
+
+{% endblock %}

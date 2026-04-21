@@ -1,0 +1,19 @@
+<h2>All Users</h2>
+
+<table border="1">
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>XP</th>
+</tr>
+
+{% for u in users %}
+<tr>
+    <td>{{ u.id }}</td>
+    <td>{{ u.name }}</td>
+    <td>{{ u.email }}</td>
+    <td>{{ u.xp }}</td>
+</tr>
+{% endfor %}
+</table>
